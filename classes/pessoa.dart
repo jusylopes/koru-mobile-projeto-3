@@ -1,9 +1,11 @@
 class Pessoa {
+  final String nome;
+  final String cpf;
   final DateTime _dataDeNascimento;
   late final int _idade;
 
   Pessoa({
-    required DateTime dataDeNascimento,
+    required DateTime dataDeNascimento, required this.nome, required this.cpf
   }) : _dataDeNascimento = dataDeNascimento {
     _idade = _calcularIdade();
   }
