@@ -1,25 +1,35 @@
 class Pessoa {
-  final DateTime _dataDeNascimento;
-  late final int _idade;
+  final String nome;
+  final String cpf;
+  final DateTime dataDeNascimento;
+  late final int idade;
 
-  Pessoa({
-    required DateTime dataDeNascimento,
-  }) : _dataDeNascimento = dataDeNascimento {
-    _idade = _calcularIdade();
+  Pessoa(
+      {required this.dataDeNascimento, required this.nome, required this.cpf}) {
+    idade = _calcularIdade();
   }
-
-  DateTime get dataDeNascimento => _dataDeNascimento;
-  int get idade => _idade;
 
   int _calcularIdade() {
     DateTime dataAtual = DateTime.now();
-    int idade = dataAtual.year - _dataDeNascimento.year;
+    int idade = dataAtual.year - dataDeNascimento.year;
 
-    if ((dataAtual.month < _dataDeNascimento.month) ||
-        (dataAtual.month == _dataDeNascimento.month &&
-            dataAtual.day < _dataDeNascimento.day)) {
+    if ((dataAtual.month < dataDeNascimento.month) ||
+        (dataAtual.month == dataDeNascimento.month &&
+            dataAtual.day < dataDeNascimento.day)) {
       idade--;
     }
     return idade;
+  }
+
+  void falar(String falaDaPessoa) {
+    print('$nome diz: $falaDaPessoa');
+  }
+
+  void maiorIdade() {
+    if (idade >= 18) {
+      print('$nome tem $idade anos, portanto é maior de idade.');
+    } else {
+      print('$nome tem $idade anos, portanto é menor de idade.');
+    }
   }
 }
