@@ -4,9 +4,11 @@ class Pessoa {
   final DateTime _dataDeNascimento;
   late final int _idade;
 
-  Pessoa({
-    required DateTime dataDeNascimento, required this.nome, required this.cpf
-  }) : _dataDeNascimento = dataDeNascimento {
+  Pessoa(
+      {required DateTime dataDeNascimento,
+      required this.nome,
+      required this.cpf})
+      : _dataDeNascimento = dataDeNascimento {
     _idade = _calcularIdade();
   }
 
@@ -23,5 +25,9 @@ class Pessoa {
       idade--;
     }
     return idade;
+  }
+
+  void falar(String falaDaPessoa) {
+    print('$nome diz: $falaDaPessoa');
   }
 }
