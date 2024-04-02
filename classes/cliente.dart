@@ -11,4 +11,9 @@ class Cliente extends Pessoa {
       required DateTime dataDeNascimento,
       this.dinheiro = 0})
       : super(nome: nome, cpf: cpf, dataDeNascimento: dataDeNascimento);
+
+  @override
+  void falar(String falaDaPessoa) {
+    print('Cliente $nome diz: $falaDaPessoa');
+  }
 }
