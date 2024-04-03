@@ -1,3 +1,4 @@
+import 'enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 
@@ -9,8 +10,13 @@ class Cliente extends Pessoa {
       {required String nome,
       required String cpf,
       required DateTime dataDeNascimento,
+      required Genero genero,
       this.dinheiro = 0})
-      : super(nome: nome, cpf: cpf, dataDeNascimento: dataDeNascimento);
+      : super(
+            nome: nome,
+            cpf: cpf,
+            dataDeNascimento: dataDeNascimento,
+            genero: genero);
 
   @override
   void falar(String falaDaPessoa) {

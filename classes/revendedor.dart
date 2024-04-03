@@ -1,3 +1,4 @@
+import 'enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 
@@ -10,8 +11,10 @@ class Revendedor extends Pessoa {
       {required String nome,
       required String cpf,
       required DateTime dataDeNascimento,
-      required this.matricula})
-      : super(nome: nome, cpf: cpf, dataDeNascimento: dataDeNascimento);
+      required this.matricula,
+      required Genero genero})
+      : super(nome: nome, cpf: cpf, dataDeNascimento: dataDeNascimento, genero:genero);
+
       
       void venderProduto(Produto produto){
         produto.realizarVenda();

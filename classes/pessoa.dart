@@ -1,11 +1,14 @@
+import 'enums.dart';
+
 class Pessoa {
   final String nome;
   final String cpf;
   final DateTime dataDeNascimento;
   late final int idade;
-
+  final Genero genero;
+  
   Pessoa(
-      {required this.dataDeNascimento, required this.nome, required this.cpf}) {
+      {required this.dataDeNascimento, required this.nome, required this.cpf, required this.genero}) {
     idade = _calcularIdade();
   }
 
