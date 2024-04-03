@@ -12,4 +12,9 @@ class Revendedor extends Pessoa {
       required DateTime dataDeNascimento,
       required this.matricula})
       : super(nome: nome, cpf: cpf, dataDeNascimento: dataDeNascimento);
+      
+      void venderProduto(Produto produto){
+        produto.realizarVenda();
+        produtosVendidos.add(produto);
+      }
 }
