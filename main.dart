@@ -3,7 +3,7 @@ import 'classes/pessoa.dart';
 import 'utils.dart';
 
 void main() {
-  // testando a classe Pessoa
+  imprimirNomeClasse('Pessoa');
   Pessoa pessoaA = Pessoa(
     nome: 'Paulo',
     cpf: '86688200867',
@@ -11,7 +11,7 @@ void main() {
   );
   pessoaA.falar('Olá Lua, como ficou?');
   pessoaA.maiorIdade();
-  pularLinha();
+  inserirSeparador();
 
   Pessoa pessoaB = Pessoa(
     nome: 'Maria',
@@ -20,47 +20,56 @@ void main() {
   );
   pessoaB.falar('Oi tudo bem?');
   pessoaB.maiorIdade();
-  pularLinha();
+  inserirSeparador();
 
   Pessoa pessoaC = Pessoa(
     nome: 'João',
     cpf: '10098787390',
     dataDeNascimento: DateTime.parse('2017-02-13'),
   );
-
   pessoaC.falar('Oi, como vai?');
   pessoaC.maiorIdade();
+  inserirSeparador();
+
   pularLinha();
-  
-  // testando a classe Produto
+  imprimirNomeClasse('Produto');
   Produto produto1 = Produto(
     nome: 'Gel de Limpeza Facial Antioxidante Botik Vitamina C 200g',
     valor: 69.90,
     qtdEmEstoque: 2,
   );
+
+  imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
   produto1.realizarVenda();
-  print(
-      "A receita gerada com a venda do produto é de ${produto1.verReceitaGerada()} reais.");
-  pularLinha();
+  imprimirReceitaGerada(produto1.verReceitaGerada());
+  inserirSeparador();
+
+  imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
   produto1.realizarVenda();
-  print(
-      "A receita gerada com a venda do produto é de ${produto1.verReceitaGerada()} reais.");
-  pularLinha();
+  imprimirReceitaGerada(produto1.verReceitaGerada());
+  inserirSeparador();
+
+  imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
   produto1.realizarVenda();
-  print(
-      "A receita gerada com a venda do produto é de ${produto1.verReceitaGerada()} reais.");
-  pularLinha();
+  imprimirReceitaGerada(produto1.verReceitaGerada());
+  inserirSeparador();
 
   Produto produto2 = Produto(
     nome: 'Privée Fresh Season Eau De Parfum 75ml',
     valor: 399.00,
     qtdEmEstoque: 1,
   );
+
+  imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
   produto2.realizarVenda();
-  print(
-      "A receita gerada com a venda do produto é de ${produto2.verReceitaGerada()} reais.");
-  pularLinha();
+  imprimirReceitaGerada(produto2.verReceitaGerada());
+  inserirSeparador();
+
+  imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
   produto2.realizarVenda();
-  print(
-      "A receita gerada com a venda do produto é de ${produto2.verReceitaGerada()} reais.");
+  imprimirReceitaGerada(produto2.verReceitaGerada());
+  inserirSeparador();
+
+  // imprimirNomeClasse('Revendedor');
+  // imprimirNomeClasse('Cliente');
 }

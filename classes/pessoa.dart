@@ -2,11 +2,11 @@ class Pessoa {
   final String nome;
   final String cpf;
   final DateTime dataDeNascimento;
-  late final int idade;
+  late final int _idade;
 
   Pessoa(
       {required this.dataDeNascimento, required this.nome, required this.cpf}) {
-    idade = _calcularIdade();
+    _idade = _calcularIdade();
   }
 
   int _calcularIdade() {
@@ -26,10 +26,10 @@ class Pessoa {
   }
 
   void maiorIdade() {
-    if (idade >= 18) {
-      print('$nome tem $idade anos, portanto é maior de idade.');
+    if (_idade >= 18) {
+      print('$nome tem $_idade anos, portanto é maior de idade.');
     } else {
-      print('$nome tem $idade anos, portanto é menor de idade.');
+      print('$nome tem $_idade anos, portanto é menor de idade.');
     }
   }
 }
