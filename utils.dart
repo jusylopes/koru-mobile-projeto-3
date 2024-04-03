@@ -8,6 +8,7 @@ void imprimirNomeClasse(String nomeClasse) {
 }
 
 void imprimirNomeQtdProduto(String nomeProduto, int qtdEmEstoque) {
+  print('');
   print('| $nomeProduto | Quantidade em estoque: $qtdEmEstoque');
 }
 
