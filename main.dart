@@ -1,3 +1,4 @@
+import 'classes/cliente.dart';
 import 'classes/enums.dart';
 import 'classes/produto.dart';
 import 'classes/pessoa.dart';
@@ -60,7 +61,7 @@ void main() {
   Produto produto2 = Produto(
     nome: 'Privée Fresh Season Eau De Parfum 75ml',
     valor: 399.00,
-    qtdEmEstoque: 1,
+    qtdEmEstoque: 10,
   );
 
   imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
@@ -84,7 +85,7 @@ void main() {
   revendedor1.falar('Olá! Temos promoções!');
   revendedor1.venderProduto(produto1);
   inserirSeparador();
-  
+
   Revendedor revendedor2 = Revendedor(
     nome: 'Angelina',
     cpf: '456.789.012.34',
@@ -94,4 +95,30 @@ void main() {
   );
   revendedor2.falar('Sou sua consultora Boti!');
   revendedor2.venderProduto(produto2);
+  pularLinha();
+
+  imprimirNomeClasse('Cliente');
+  Cliente cliente1 = Cliente(
+    nome: 'Willian',
+    cpf: '000.777.888-99',
+    dataDeNascimento: DateTime.parse('2000-02-13'),
+    genero: Genero.Masculino,
+  );
+  cliente1.falar('Boa noite galera');
+  cliente1.adicionarDinheiro(800);
+  cliente1.comprarProduto(produto2, revendedor1);
+  cliente1.comprarProduto(produto1, revendedor1);
+  cliente1.comprarProduto(produto2, revendedor1);
+
+  inserirSeparador();
+  Cliente cliente2 = Cliente(
+    nome: 'Lucas',
+    cpf: '111.222.333-99',
+    dataDeNascimento: DateTime.parse('2002-02-13'),
+    genero: Genero.Outro,
+  );
+  cliente2.falar('Gostaria de um produto');
+  cliente2.adicionarDinheiro(80);
+  cliente2.comprarProduto(produto1, revendedor1);
+  inserirSeparador();
 }
