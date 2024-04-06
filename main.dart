@@ -44,18 +44,15 @@ void main() {
   );
 
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
-  produto1.realizarVenda();
-  imprimirReceitaGerada(produto1.verReceitaGerada());
+  produto1.realizarVenda();  
   inserirSeparador();
 
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
-  produto1.realizarVenda();
-  imprimirReceitaGerada(produto1.verReceitaGerada());
+  produto1.realizarVenda(); 
   inserirSeparador();
 
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
-  produto1.realizarVenda();
-  imprimirReceitaGerada(produto1.verReceitaGerada());
+  produto1.realizarVenda(); 
   inserirSeparador();
 
   Produto produto2 = Produto(
@@ -65,15 +62,14 @@ void main() {
   );
 
   imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
-  produto2.realizarVenda();
-  imprimirReceitaGerada(produto2.verReceitaGerada());
+  produto2.realizarVenda(); 
   inserirSeparador();
 
   imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
-  produto2.realizarVenda();
-  imprimirReceitaGerada(produto2.verReceitaGerada());
+  produto2.realizarVenda(); 
   inserirSeparador();
 
+  pularLinha();
   imprimirNomeClasse('Revendedor');
   Revendedor revendedor1 = Revendedor(
     nome: 'Eduardo',

@@ -12,11 +12,6 @@ void imprimirNomeQtdProduto(String nomeProduto, int qtdEmEstoque) {
   print('| $nomeProduto | Quantidade em estoque: $qtdEmEstoque');
 }
 
-void imprimirReceitaGerada(double receitaGerada) {
-  print(
-      "A receita gerada com a venda do produto é de ${receitaGerada.toStringAsFixed(2)} reais.");
-}
-
 void inserirSeparador() {
   print('+---------------------------------------------+');
 }
