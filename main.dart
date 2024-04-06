@@ -44,15 +44,15 @@ void main() {
   );
 
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
-  produto1.realizarVenda();  
+  produto1.realizarVenda();
   inserirSeparador();
 
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
-  produto1.realizarVenda(); 
+  produto1.realizarVenda();
   inserirSeparador();
 
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
-  produto1.realizarVenda(); 
+  produto1.realizarVenda();
   inserirSeparador();
   imprimirReceitaProduto(produto1.verReceitaGerada(), produto1.nome);
   inserirSeparador();
@@ -64,13 +64,13 @@ void main() {
   );
 
   imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
-  produto2.realizarVenda(); 
+  produto2.realizarVenda();
   inserirSeparador();
 
   imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
-  produto2.realizarVenda(); 
+  produto2.realizarVenda();
   inserirSeparador();
-  imprimirReceitaProduto(produto2.verReceitaGerada(),produto2.nome);
+  imprimirReceitaProduto(produto2.verReceitaGerada(), produto2.nome);
   inserirSeparador();
 
   pularLinha();

@@ -6,9 +6,12 @@ class Pessoa {
   final DateTime dataDeNascimento;
   late final int _idade;
   final Genero genero;
-  
+
   Pessoa(
-      {required this.dataDeNascimento, required this.nome, required this.cpf, required this.genero}) {
+      {required this.dataDeNascimento,
+      required this.nome,
+      required this.cpf,
+      required this.genero}) {
     _idade = _calcularIdade();
   }
 
