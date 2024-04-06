@@ -18,5 +18,5 @@ void inserirSeparador() {
 
 void imprimirReceitaProduto(double valorDaReceita, String nomeProduto) {
   print(
-      'A receita gerada pelas vendas de $nomeProduto é de ${valorDaReceita.toStringAsFixed(2)} reais');
+      '|Receita gerada pelas vendas de $nomeProduto | ${valorDaReceita.toStringAsFixed(2)} reais');
 }
