@@ -105,6 +105,7 @@ void main() {
   cliente1.comprarProduto(produto2, revendedor1);
   cliente1.comprarProduto(produto1, revendedor1);
   cliente1.comprarProduto(produto2, revendedor1);
+  cliente1.verSaldoAtual();
 
   inserirSeparador();
   Cliente cliente2 = Cliente(
@@ -116,5 +117,6 @@ void main() {
   cliente2.falar('Gostaria de um produto');
   cliente2.adicionarDinheiro(80);
   cliente2.comprarProduto(produto1, revendedor1);
+  cliente2.verSaldoAtual();
   inserirSeparador();
 }

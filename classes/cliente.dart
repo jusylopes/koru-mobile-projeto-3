@@ -50,4 +50,9 @@ class Cliente extends Pessoa {
     print(
         'Cliente $nome não possui dinheiro suficiente para comprar o produto $nomeProduto.');
   }
+
+  void verSaldoAtual() {
+    print(
+        'Cliente $nome seu saldo atual é de ${dinheiro.toStringAsFixed(2)} reais');
+  }
 }
