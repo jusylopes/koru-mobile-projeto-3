@@ -15,3 +15,8 @@ void imprimirNomeQtdProduto(String nomeProduto, int qtdEmEstoque) {
 void inserirSeparador() {
   print('+---------------------------------------------+');
 }
+
+void imprimirReceitaProduto(double valorDaReceita, String nomeProduto) {
+  print(
+      'A receita gerada pelas vendas de $nomeProduto é de ${valorDaReceita.toStringAsFixed(2)} reais');
+}

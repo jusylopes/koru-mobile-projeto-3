@@ -54,6 +54,8 @@ void main() {
   imprimirNomeQtdProduto(produto1.nome, produto1.qtdEmEstoque);
   produto1.realizarVenda(); 
   inserirSeparador();
+  imprimirReceitaProduto(produto1.verReceitaGerada(), produto1.nome);
+  inserirSeparador();
 
   Produto produto2 = Produto(
     nome: 'Privée Fresh Season Eau De Parfum 75ml',
@@ -67,6 +69,8 @@ void main() {
 
   imprimirNomeQtdProduto(produto2.nome, produto2.qtdEmEstoque);
   produto2.realizarVenda(); 
+  inserirSeparador();
+  imprimirReceitaProduto(produto2.verReceitaGerada(),produto2.nome);
   inserirSeparador();
 
   pularLinha();
