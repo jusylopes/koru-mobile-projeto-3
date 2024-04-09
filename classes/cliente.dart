@@ -55,4 +55,8 @@ class Cliente extends Pessoa {
     print(
         'Cliente $nome seu saldo atual é de ${dinheiro.toStringAsFixed(2)} reais');
   }
+
+  void ordenarProdutosComprados() {
+    produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
+  }
 }
