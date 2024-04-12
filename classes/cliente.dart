@@ -59,4 +59,12 @@ class Cliente extends Pessoa {
   void ordenarProdutosComprados() {
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
   }
+
+  double calcularTotalGasto() {
+    double totalDeProdutosComprados = 0;
+    for (int i = 0; i < produtosComprados.length; i++) {
+      totalDeProdutosComprados += produtosComprados[i].valor;
+    }
+    return totalDeProdutosComprados;
+  }
 }
