@@ -44,4 +44,17 @@ class Revendedor extends Pessoa {
     }
     print('$generoRevendedor $nome diz: $falaDaPessoa');
   }
+
+  double calcularMediaProdutosVendidos(Produto) {
+    double somaProdutos = 0;
+    double somaValores = 0;
+    double media = 0;
+
+    for (int i = 0; i < produtosVendidos.length; i++) {
+      somaProdutos += Produto.produtosVendidos;
+      somaValores += Produto.produtosVendidos * Produto.valor;
+    }
+    media = somaValores / somaProdutos;
+    return media;
+  }
 }
