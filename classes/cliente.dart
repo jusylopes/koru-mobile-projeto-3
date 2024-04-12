@@ -34,6 +34,14 @@ class Cliente extends Pessoa {
   }
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
+    try {
+      revendedor.venderProduto(produto);
+      produtosComprados.add(produto);
+      dinheiro -= produto.valor;
+    } catch (e) {
+      print("Erro ao comprar o produto: $e");
+    }
+
     dinheiro >= produto.valor
         ? _realizarCompra(produto, revendedor)
         : _recusarCompra(produto.nome);
