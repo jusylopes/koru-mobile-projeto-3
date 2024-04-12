@@ -40,10 +40,10 @@ class Cliente extends Pessoa {
   }
 
   void _realizarCompra(Produto produto, Revendedor revendedor) {
-    if (revendedor.venderProduto(produto)) {
+    /*if (revendedor.venderProduto(produto)) {
       produtosComprados.add(produto);
       dinheiro -= produto.valor;
-    }
+    }*/
   }
 
   void _recusarCompra(String nomeProduto) {

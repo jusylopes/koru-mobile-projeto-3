@@ -19,13 +19,13 @@ class Revendedor extends Pessoa {
             dataDeNascimento: dataDeNascimento,
             genero: genero);
 
-  bool venderProduto(Produto produto) {
-    if (produto.realizarVenda()) {
+  void venderProduto(Produto produto) {
+    /*if (produto.realizarVenda()) {
       produtosVendidos.add(produto);
       return true;
     } else {
       return false;
-    }
+    }*/
   }
 
   @override
