@@ -67,4 +67,11 @@ class Cliente extends Pessoa {
     }
     return totalDeProdutosComprados;
   }
+
+  double calcularMediaProdutosComprados() {
+    double somaValores = calcularTotalGasto();
+    double mediaDeProdutosComprados = somaValores / produtosComprados.length;
+
+    return mediaDeProdutosComprados;
+  }
 }
