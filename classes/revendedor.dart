@@ -19,13 +19,13 @@ class Revendedor extends Pessoa {
             dataDeNascimento: dataDeNascimento,
             genero: genero);
 
-  bool venderProduto(Produto produto) {
-    if (produto.realizarVenda()) {
-      produtosVendidos.add(produto);
-      return true;
-    } else {
-      return false;
-    }
+  void venderProduto(Produto produto){
+  try {
+    produto.realizarVenda();
+    produtosVendidos.add(produto);
+  } catch (e) {
+    throw e;
+  }
   }
 
   @override
@@ -43,5 +43,17 @@ class Revendedor extends Pessoa {
         break;
     }
     print('$generoRevendedor $nome diz: $falaDaPessoa');
+  }
+
+  double calcularMediaProdutosVendidos() {
+    double somaValores = 0;
+    double media = 0;
+
+    for (int i = 0; i < produtosVendidos.length; i++) {
+      somaValores += produtosVendidos[i].valor;
+    }
+
+    media = somaValores / produtosVendidos.length;
+    return media;
   }
 }
