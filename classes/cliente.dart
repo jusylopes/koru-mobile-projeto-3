@@ -40,10 +40,13 @@ class Cliente extends Pessoa {
   }
 
   void _realizarCompra(Produto produto, Revendedor revendedor) {
-    /*if (revendedor.venderProduto(produto)) {
+    try {
+      revendedor.venderProduto(produto);
       produtosComprados.add(produto);
       dinheiro -= produto.valor;
-    }*/
+    } catch (e) {
+      print("Erro ao comprar o produto: $e");
+    }
   }
 
   void _recusarCompra(String nomeProduto) {
@@ -56,7 +59,7 @@ class Cliente extends Pessoa {
         'Cliente $nome seu saldo atual é de ${dinheiro.toStringAsFixed(2)} reais');
   }
 
-  void ordenarProdutosComprados() {
+  void _ordenarProdutosComprados() {
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
   }
 
@@ -66,5 +69,26 @@ class Cliente extends Pessoa {
       totalDeProdutosComprados += produtosComprados[i].valor;
     }
     return totalDeProdutosComprados;
+  }
+
+  double calcularMediaProdutosComprados() {
+    double somaValores = calcularTotalGasto();
+    double mediaDeProdutosComprados = somaValores / produtosComprados.length;
+
+    return mediaDeProdutosComprados;
+  }
+
+  void verProdutosComprados() {
+    _ordenarProdutosComprados();
+
+    print('Produtos comprados por $nome: ');
+    for (Produto produto in produtosComprados) {
+      print('${produto.nome} - ${produto.valor.toStringAsFixed(2)}');
+    }
+  }
+
+  void verResumo() {
+    print(
+        "O total gasto por $nome foi de ${calcularTotalGasto().toStringAsFixed(2)} reais e a média dos produtos comprados é de ${calcularMediaProdutosComprados().toStringAsFixed(2)} reais");
   }
 }

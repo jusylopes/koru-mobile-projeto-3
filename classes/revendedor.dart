@@ -20,12 +20,12 @@ class Revendedor extends Pessoa {
             genero: genero);
 
   void venderProduto(Produto produto) {
-    /*if (produto.realizarVenda()) {
+    try {
+      produto.realizarVenda();
       produtosVendidos.add(produto);
-      return true;
-    } else {
-      return false;
-    }*/
+    } catch (e) {
+      throw e;
+    }
   }
 
   @override
@@ -57,8 +57,25 @@ class Revendedor extends Pessoa {
     return media;
   }
 
+  double calcularTotalVendido() {
+    double calcularTotalVendido = 0;
+    for (Produto produto in produtosVendidos) {
+      calcularTotalVendido += produto.valor;
+    }
+    return calcularTotalVendido;
+  }
+
+  double calcularLucro() {
+    double lucroTotal = 0;
+
+    lucroTotal = porcentagemLucro * calcularTotalVendido();
+
+    return lucroTotal;
+  }
+
   void verResumo() {
     print(
-        'O total vendido por $nome foi 1526.00 reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais. O lucro recebido foi de 300.00 reais.');
+        'O total vendido por $nome foi ${calcularTotalVendido().toStringAsFixed(2)} reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais. O lucro recebido foi de ${calcularLucro().toStringAsFixed(2)} reais.');
   }
 }
+

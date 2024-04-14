@@ -35,7 +35,9 @@ void main() {
   pessoaC.maiorIdade();
   inserirSeparador();
 
+  imprimirPcASCII();
   pularLinha();
+
   imprimirNomeClasse('Produto');
   Produto produto1 = Produto(
     nome: 'Gel de Limpeza Facial Antioxidante Botik Vitamina C 200g',
@@ -55,7 +57,6 @@ void main() {
   produto1.realizarVenda();
   inserirSeparador();
   imprimirReceitaProduto(produto1.verReceitaGerada(), produto1.nome);
-  inserirSeparador();
 
   Produto produto2 = Produto(
     nome: 'Privée Fresh Season Eau De Parfum 75ml',
@@ -74,6 +75,9 @@ void main() {
   inserirSeparador();
 
   pularLinha();
+  imprimirLogoASCII();
+  pularLinha();
+
   imprimirNomeClasse('Revendedor');
   Revendedor revendedor1 = Revendedor(
     nome: 'Eduardo',
@@ -95,6 +99,7 @@ void main() {
   );
   revendedor2.falar('Sou sua consultora Boti!');
   revendedor2.venderProduto(produto2);
+
   pularLinha();
 
   imprimirNomeClasse('Cliente');
@@ -109,9 +114,12 @@ void main() {
   cliente1.comprarProduto(produto2, revendedor1);
   cliente1.comprarProduto(produto1, revendedor1);
   cliente1.comprarProduto(produto2, revendedor1);
-  cliente1.verSaldoAtual();
+  pularLinha();
+  cliente1.verProdutosComprados();
 
+  cliente1.verSaldoAtual();
   inserirSeparador();
+
   Cliente cliente2 = Cliente(
     nome: 'Lucas',
     cpf: '111.222.333-99',
@@ -121,6 +129,9 @@ void main() {
   cliente2.falar('Gostaria de um produto');
   cliente2.adicionarDinheiro(80);
   cliente2.comprarProduto(produto1, revendedor1);
+  pularLinha();
+  cliente2.verProdutosComprados();
+
   cliente2.verSaldoAtual();
   inserirSeparador();
 }
