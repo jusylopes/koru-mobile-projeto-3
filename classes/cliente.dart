@@ -80,6 +80,6 @@ class Cliente extends Pessoa {
 
   void verResumo() {
     print(
-        "O valor Total gasto foi de ${calcularTotalGasto().toStringAsFixed(2)} e valor médio gasto pelas compras foi de ${calcularMediaProdutosComprados().toStringAsFixed(2)}");
+        "O total gasto por ${nome} foi de ${calcularTotalGasto().toStringAsFixed(2)} reais e a média dos produtos comprados é de ${calcularMediaProdutosComprados().toStringAsFixed(2)} reais");
   }
 }
