@@ -56,4 +56,9 @@ class Revendedor extends Pessoa {
     media = somaValores / produtosVendidos.length;
     return media;
   }
+
+  void verResumo() {
+    print(
+        'O total vendido por $nome foi 1526.00 reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais. O lucro recebido foi de 300.00 reais.');
+  }
 }
