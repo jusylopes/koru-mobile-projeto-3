@@ -57,7 +57,7 @@ class Revendedor extends Pessoa {
     return media;
   }
 
-double calcularTotalGasto() {
+double calcularTotalVendido() {
     double calcularTotalVendido = 0;
     for (Produto produto in produtosVendidos) {
       calcularTotalVendido += produto.valor;
