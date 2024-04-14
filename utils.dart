@@ -3,7 +3,7 @@ void pularLinha() {
 }
 
 void imprimirNomeClasse(String nomeClasse) {
-  print('| Testes de saída da classe $nomeClasse |');
+  imprimirMensagemComMoldura('| Testes de saída da classe $nomeClasse |');
   print('');
 }
 
@@ -17,6 +17,48 @@ void inserirSeparador() {
 }
 
 void imprimirReceitaProduto(double valorDaReceita, String nomeProduto) {
-  print(
+  imprimirMensagemComMoldura(
       '|Receita gerada pelas vendas de $nomeProduto | ${valorDaReceita.toStringAsFixed(2)} reais');
+}
+
+void imprimirMensagemComMoldura(String mensagem) {
+  final larguraMoldura = mensagem.length + 4;
+  final linhaMoldura = '+' + '-'.padRight(larguraMoldura - 2, '-') + '+';
+  final mensagemComEspacos =
+      '| ' + mensagem.padRight(larguraMoldura - 4) + ' |';
+
+  print(linhaMoldura);
+  print(mensagemComEspacos);
+  print(linhaMoldura);
+}
+
+void imprimirPcASCII() {
+  final computadorEmASCII = '''
+         .'----------`.                              
+         | .--------. |                             
+         | |##TEAM##| |       __________              
+         | |##FIVE##| |      /__________\\             
+.--------| `--------' |------|    --=-- |-------------.
+|        `----,-.-----'      |o ======  |             | 
+|       ______|_|_______     |__________|             | 
+|      /  %%%%%%%%%%%%  \\                             | 
+|     /  %%%%%%%%%%%%%%  \\                            | 
+|     ^^^^^^^^^^^^^^^^^^^^                            | 
++-----------------------------------------------------+
+  ''';
+  print(computadorEmASCII);
+}
+
+void imprimirLogoASCII() {
+  final logoBotiEmASCII = '''
+             @@@@@@@@@@                                            @@                               
+  @@@@@@@    @@@     @@@   @@@@@@@@ @@@@@@@@@@@ @@@   @@@@@@@     @@@     @@@@@@@@   @@@   @@@@@@@  
+@@@    @@@   @@@    @@@@  @@@    @@@    @@@     @@@ @@@@    @@   @@@@@    @@@   @@@  @@@  @@@    @@@
+@@@     @@@  @@@@@@@@@@@ @@@      @@@   @@@     @@@ @@@          @@@@@    @@@@@@@@@  @@@ @@@     @@@
+@@@     @@@  @@@     @@@ @@@      @@@   @@@     @@@ @@@         @@@@@@@   @@@@@@@@   @@@ @@@     @@@
+@@@    @@@   @@@     @@@  @@@    @@@    @@@     @@@ @@@@    @@ @@    @@@  @@@   @@@  @@@  @@@    @@@
+  @@@@@@@    @@@@@@@@@@    @@@@@@@@     @@@     @@@  @@@@@@@@ @@@     @@@ @@@   @@@@ @@@   @@@@@@@  
+''';
+
+  print(logoBotiEmASCII);
 }
