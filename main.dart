@@ -114,9 +114,12 @@ void main() {
   cliente1.comprarProduto(produto2, revendedor1);
   cliente1.comprarProduto(produto1, revendedor1);
   cliente1.comprarProduto(produto2, revendedor1);
-  cliente1.verSaldoAtual();
+  pularLinha();
+  cliente1.verProdutosComprados();
 
+  cliente1.verSaldoAtual();
   inserirSeparador();
+
   Cliente cliente2 = Cliente(
     nome: 'Lucas',
     cpf: '111.222.333-99',
@@ -126,6 +129,9 @@ void main() {
   cliente2.falar('Gostaria de um produto');
   cliente2.adicionarDinheiro(80);
   cliente2.comprarProduto(produto1, revendedor1);
+  pularLinha();
+  cliente2.verProdutosComprados();
+
   cliente2.verSaldoAtual();
   inserirSeparador();
 }

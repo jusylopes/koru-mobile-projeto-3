@@ -77,4 +77,13 @@ class Cliente extends Pessoa {
 
     return mediaDeProdutosComprados;
   }
+
+  void verProdutosComprados() {
+    produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
+
+    print('Produtos comprados por $nome: ');
+    for (Produto produto in produtosComprados) {
+      print('${produto.nome} - ${produto.valor.toStringAsFixed(2)}');
+    }
+  }
 }
