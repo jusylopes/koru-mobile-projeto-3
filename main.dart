@@ -1,9 +1,9 @@
 import 'classes/cliente.dart';
-import 'classes/enums.dart';
+import 'utils/enums.dart';
 import 'classes/produto.dart';
 import 'classes/pessoa.dart';
 import 'classes/revendedor.dart';
-import 'utils.dart';
+import 'utils/utils.dart';
 
 void main() {
   imprimirNomeClasse('Pessoa');

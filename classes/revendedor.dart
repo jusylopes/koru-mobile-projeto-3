@@ -1,4 +1,4 @@
-import 'enums.dart';
+import '../utils/enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 

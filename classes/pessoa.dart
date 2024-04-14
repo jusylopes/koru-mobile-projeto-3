@@ -1,4 +1,4 @@
-import 'enums.dart';
+import '../utils/enums.dart';
 
 class Pessoa {
   final String nome;
