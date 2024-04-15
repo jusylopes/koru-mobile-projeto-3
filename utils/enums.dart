@@ -4,7 +4,7 @@ enum Genero {
   Outro;
 }
 
-enum TipoUsuario {
+enum Usuario {
   revendedor,
   cliente,
 }

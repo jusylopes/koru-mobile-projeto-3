@@ -34,7 +34,7 @@ class MenuRevendedor {
           if (revendedor != null) {
             _venderProduto(revendedor!);
           } else {
-            imprimirUsuarioNaoAdicionado(TipoUsuario.revendedor);
+            imprimirUsuarioNaoAdicionado(Usuario.revendedor);
           }
           break;
         case '3':
@@ -43,7 +43,7 @@ class MenuRevendedor {
             String mensagemRevendedor = stdin.readLineSync()!;
             revendedor!.falar(mensagemRevendedor);
           } else {
-            imprimirUsuarioNaoAdicionado(TipoUsuario.revendedor);
+            imprimirUsuarioNaoAdicionado(Usuario.revendedor);
           }
           break;
         case '4':
@@ -51,7 +51,7 @@ class MenuRevendedor {
             imprimirMensagemComMoldura('Seu resumo de operações: ');
             revendedor!.verResumo();
           } else {
-            imprimirUsuarioNaoAdicionado(TipoUsuario.revendedor);
+            imprimirUsuarioNaoAdicionado(Usuario.revendedor);
           }
           break;
         case '5':

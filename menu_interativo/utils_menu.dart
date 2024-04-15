@@ -82,7 +82,7 @@ void imprimirOpcaoInvalida() {
   print('Opção inválida. Por favor, escolha uma opção válida.');
 }
 
-void imprimirUsuarioNaoAdicionado(TipoUsuario tipoUsuario) {
+void imprimirUsuarioNaoAdicionado(Usuario tipoUsuario) {
   print(
-      'Usuário não adicionado. Por favor, adicione um ${tipoUsuario == TipoUsuario.revendedor ? 'revendedor' : 'cliente'} primeiro.');
+      'Usuário não adicionado. Por favor, adicione um ${tipoUsuario == Usuario.revendedor ? 'revendedor' : 'cliente'} primeiro.');
 }

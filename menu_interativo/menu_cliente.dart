@@ -40,21 +40,21 @@ class MenuCliente {
 
             cliente!.adicionarDinheiro(valor);
           } else {
-            imprimirUsuarioNaoAdicionado(TipoUsuario.cliente);
+            imprimirUsuarioNaoAdicionado(Usuario.cliente);
           }
           break;
         case '3':
           if (cliente != null) {
             _comprarProduto(cliente!);
           } else {
-            imprimirUsuarioNaoAdicionado(TipoUsuario.cliente);
+            imprimirUsuarioNaoAdicionado(Usuario.cliente);
           }
           break;
         case '4':
           if (cliente != null) {
             cliente!.verProdutosComprados();
           } else {
-            imprimirUsuarioNaoAdicionado(TipoUsuario.cliente);
+            imprimirUsuarioNaoAdicionado(Usuario.cliente);
           }
           break;
         case '5':
