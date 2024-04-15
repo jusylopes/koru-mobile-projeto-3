@@ -15,6 +15,8 @@ class Pessoa {
     _idade = _calcularIdade();
   }
 
+  int get idade => _idade;
+
   int _calcularIdade() {
     DateTime dataAtual = DateTime.now();
     int idade = dataAtual.year - dataDeNascimento.year;

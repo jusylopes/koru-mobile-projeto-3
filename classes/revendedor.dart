@@ -5,7 +5,7 @@ import 'produto.dart';
 class Revendedor extends Pessoa {
   final String matricula;
   List<Produto> produtosVendidos = [];
-  double porcentagemLucro = 0.15;
+  double _porcentagemLucro = 0.15;
 
   Revendedor(
       {required String nome,
@@ -18,6 +18,8 @@ class Revendedor extends Pessoa {
             cpf: cpf,
             dataDeNascimento: dataDeNascimento,
             genero: genero);
+
+  double get porcentagemLucro => _porcentagemLucro;
 
   void venderProduto(Produto produto) {
     try {
@@ -68,7 +70,7 @@ class Revendedor extends Pessoa {
   double calcularLucro() {
     double lucroTotal = 0;
 
-    lucroTotal = porcentagemLucro * calcularTotalVendido();
+    lucroTotal = _porcentagemLucro * calcularTotalVendido();
 
     return lucroTotal;
   }
@@ -78,4 +80,3 @@ class Revendedor extends Pessoa {
         'O total vendido por $nome foi ${calcularTotalVendido().toStringAsFixed(2)} reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais. O lucro recebido foi de ${calcularLucro().toStringAsFixed(2)} reais.');
   }
 }
-
