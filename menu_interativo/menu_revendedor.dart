@@ -14,6 +14,7 @@ class MenuRevendedor {
 
     while (!sair) {
       pularLinha();
+      imprimirMensagemComMoldura(' REVENDEDOR |     TEAM FIVE   ');
       print('|--------------------------------|');
       print('| 1 - Adicionar Revendedor       |');
       print('| 2 - Vender Produto             |');

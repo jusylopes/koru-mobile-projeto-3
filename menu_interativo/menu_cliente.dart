@@ -16,6 +16,7 @@ class MenuCliente {
 
     while (!sair) {
       pularLinha();
+      imprimirMensagemComMoldura(' CLIENTE    |     TEAM FIVE   ');
       print('|--------------------------------|');
       print('| 1 - Adicionar Cliente          |');
       print('| 2 - Adicionar Dinheiro         |');
