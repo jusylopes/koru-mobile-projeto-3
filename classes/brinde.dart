@@ -24,4 +24,9 @@ class Brinde {
       throw 'No momento não possuímos o produto $nomeBrinde em estoque.';
     }
   }
+  void ordenarBrindes(List<Brinde>brindesOrdenados){
+   brindesOrdenados.sort((a,b) {
+    return a.nomeBrinde.compareTo(b.nomeBrinde); 
+   });
+  }
 }
