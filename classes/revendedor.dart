@@ -48,14 +48,9 @@ class Revendedor extends Pessoa {
   }
 
   double calcularMediaProdutosVendidos() {
-    double somaValores = 0;
     double media = 0;
 
-    for (int i = 0; i < produtosVendidos.length; i++) {
-      somaValores += produtosVendidos[i].valor;
-    }
-
-    media = somaValores / produtosVendidos.length;
+    media = calcularTotalVendido() / produtosVendidos.length;
     return media;
   }
 
