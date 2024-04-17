@@ -73,9 +73,10 @@ void imprimirOpcaoInvalida() {
 }
 
 String validarDataDeNascimento(String textInput) {
-  RegExp regExpDataNascimento = RegExp(r'^\d{4}-\d{2}-\d{2}$');
+  RegExp regExpDataNascimento =
+      RegExp(r'(19|20)\d{2}-(0[1-9]|1[1,2])-(0[1-9]|[12][0-9]|3[01])$');
 
-  while (regExpDataNascimento.hasMatch(textInput)) {
+  while (!regExpDataNascimento.hasMatch(textInput)) {
     print('Formato de data inválido. Por favor, insira no formato AAAA-MM-DD:');
     textInput = stdin.readLineSync()!;
   }
@@ -84,10 +85,11 @@ String validarDataDeNascimento(String textInput) {
 }
 
 String validarCpf(String textInput) {
-  RegExp regExpCpf = RegExp(r'^\d+$');
+  RegExp regExpCpf = RegExp(
+      r'([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})$');
 
-  while (regExpCpf.hasMatch(textInput)) {
-    print('Formato de CPF inválido. Por favor, insira apenas números:');
+  while (!regExpCpf.hasMatch(textInput)) {
+    print('Formato de CPF inválido. Por favor, insira um cpf válido:');
     textInput = stdin.readLineSync()!;
   }
 

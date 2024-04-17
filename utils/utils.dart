@@ -32,21 +32,11 @@ void imprimirMensagemComMoldura(String mensagem) {
   print(linhaMoldura);
 }
 
-void imprimirPcASCII() {
-  final computadorEmASCII = '''
-         .'----------`.                              
-         | .--------. |                             
-         | |##TEAM##| |       __________              
-         | |##FIVE##| |      /__________\\             
-.--------| `--------' |------|    --=-- |-------------.
-|        `----,-.-----'      |o ======  |             | 
-|       ______|_|_______     |__________|             | 
-|      /  %%%%%%%%%%%%  \\                             | 
-|     /  %%%%%%%%%%%%%%  \\                            | 
-|     ^^^^^^^^^^^^^^^^^^^^                            | 
-+-----------------------------------------------------+
+void imprimirEstrelasDoClubeASCII() {
+  final estrelasEmASCII = '''
+:･ﾟ✧:･.☽｡･ﾟ✧:･:･ﾟ✧:･.☽｡･ﾟ✧:･:･ﾟ✧:･
   ''';
-  print(computadorEmASCII);
+  print(estrelasEmASCII);
 }
 
 void imprimirLogoASCII() {
