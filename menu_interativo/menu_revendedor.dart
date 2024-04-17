@@ -13,7 +13,7 @@ class MenuRevendedor {
     while (!sair) {
       pularLinha();
       imprimirMensagemComMoldura(
-          ' REVENDEDOR | ${_criaTituloDoMenuRevendedor(revendedorSelecionado)}');
+          '${_criaTituloDoMenuRevendedor(revendedorSelecionado)}');
       print('|--------------------------------|');
       print('| 1 - Selecionar Revendedor      |');
       print('| 2 - Vender Produto             |');
@@ -56,7 +56,7 @@ class MenuRevendedor {
 
   String _criaTituloDoMenuRevendedor(Revendedor? revendedorSelecionado) {
     return revendedorSelecionado != null
-        ? '${revendedorSelecionado.nome} - mat ${revendedorSelecionado.nome}'
+        ? '${revendedorSelecionado.getGeneroRevendedor().toUpperCase()} | ${revendedorSelecionado.nome} - mat ${revendedorSelecionado.matricula}'
         : 'TEAM FIVE';
   }
 

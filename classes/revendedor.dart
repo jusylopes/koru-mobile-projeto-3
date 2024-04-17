@@ -32,19 +32,22 @@ class Revendedor extends Pessoa {
 
   @override
   void falar(String falaDaPessoa) {
-    String generoRevendedor;
+    print('$getGeneroRevendedor $nome diz: $falaDaPessoa');
+  }
+
+  String getGeneroRevendedor() {
     switch (genero) {
       case Genero.Feminino:
-        generoRevendedor = 'Revendedora';
-        break;
+        return 'Revendedora';
+
       case Genero.Masculino:
-        generoRevendedor = 'Revendedor';
-        break;
+        return 'Revendedor';
+
       case Genero.Outro:
-        generoRevendedor = 'Pessoa revendedora';
-        break;
+        return 'Pessoa revendedora';
+      default:
+        return 'Revendedor';
     }
-    print('$generoRevendedor $nome diz: $falaDaPessoa');
   }
 
   double calcularMediaProdutosVendidos() {
