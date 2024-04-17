@@ -1,52 +1,9 @@
 import 'dart:io';
-import '../classes/cliente.dart';
+import '../classes/produto.dart';
 import '../classes/revendedor.dart';
 import '../utils/enums.dart';
-import '../utils/mock_cliente.dart';
+import '../utils/mock_produto.dart';
 import '../utils/mock_revendedor.dart';
-
-Cliente inserirDadosCliente() {
-  List<Cliente> clientesLista = MockCliente.mockCliente();
-
-  print('Digite seu nome:');
-  String nome = stdin.readLineSync()!;
-  print('Digite seu CPF:');
-  String cpf = stdin.readLineSync()!;
-  print('Digite sua data de nascimento (dessa forma: YYYY-MM-DD):');
-  DateTime dataNascimento = DateTime.parse(stdin.readLineSync()!);
-  Genero genero = selecionarGeneroNoMenu();
-
-  Cliente cliente = Cliente(
-      nome: nome, cpf: cpf, dataDeNascimento: dataNascimento, genero: genero);
-  clientesLista.add(cliente);
-
-  return cliente;
-}
-
-Revendedor inserirDadosRevendedor() {
-  List<Revendedor> revendedores = MockRevendedor.mockRevendedor();
-
-  print('Digite seu nome:');
-  String nome = stdin.readLineSync()!;
-  print('Digite seu CPF:');
-  String cpf = stdin.readLineSync()!;
-  print('Digite sua data de nascimento (dessa forma: YYYY-MM-DD):');
-  DateTime dataNascimento = DateTime.parse(stdin.readLineSync()!);
-  Genero genero = selecionarGeneroNoMenu();
-  print('Digite sua matricula:');
-  String matricula = stdin.readLineSync()!;
-
-  Revendedor revendedor = Revendedor(
-    nome: nome,
-    cpf: cpf,
-    dataDeNascimento: dataNascimento,
-    genero: genero,
-    matricula: matricula,
-  );
-  revendedores.add(revendedor);
-
-  return revendedor;
-}
 
 Genero selecionarGeneroNoMenu() {
   print('Escolha o gênero:');
@@ -78,11 +35,39 @@ Genero selecionarGeneroNoMenu() {
   return genero;
 }
 
-void imprimirOpcaoInvalida() {
-  print('Opção inválida. Por favor, escolha uma opção válida.');
+Produto selecionarProdutoNoMenu() {
+  List<Produto> produtos = MockProduto.mockProduto();
+
+  print('Escolha um produto:');
+  for (int i = 0; i < produtos.length; i++) {
+    print(
+        '${i + 1} - ${produtos[i].nome} - ${produtos[i].valor.toStringAsFixed(2)} reais');
+  }
+  int produtoIndex = int.parse(stdin.readLineSync()!) - 1;
+  Produto produtoSelecionado = produtos[produtoIndex];
+
+  return produtoSelecionado;
+}
+
+Revendedor selecionarRevendedorNoMenu() {
+  List<Revendedor> revendedores = MockRevendedor.mockRevendedor();
+
+  print('Escolha um revendedor:');
+  for (int i = 0; i < revendedores.length; i++) {
+    print(
+        '${i + 1} - ${revendedores[i].nome} - MAT: ${revendedores[i].matricula}');
+  }
+  int produtoIndex = int.parse(stdin.readLineSync()!) - 1;
+  Revendedor revendedorSelecionado = revendedores[produtoIndex];
+
+  return revendedorSelecionado;
 }
 
 void imprimirUsuarioNaoAdicionado(Usuario tipoUsuario) {
   print(
       'Usuário não adicionado. Por favor, adicione um ${tipoUsuario == Usuario.revendedor ? 'revendedor' : 'cliente'} primeiro.');
+}
+
+void imprimirOpcaoInvalida() {
+  print('Opção inválida. Por favor, escolha uma opção válida.');
 }
