@@ -57,7 +57,7 @@ class MenuRevendedor {
   String _criaTituloDoMenuRevendedor(Revendedor? revendedorSelecionado) {
     return revendedorSelecionado != null
         ? '${revendedorSelecionado.getGeneroRevendedor().toUpperCase()} | ${revendedorSelecionado.nome} - mat ${revendedorSelecionado.matricula}'
-        : 'TEAM FIVE';
+        : 'REVENDEDOR | TEAM FIVE';
   }
 
   void _venderProduto(Revendedor revendedor) {
