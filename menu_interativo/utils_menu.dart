@@ -71,3 +71,25 @@ void imprimirUsuarioNaoAdicionado(Usuario tipoUsuario) {
 void imprimirOpcaoInvalida() {
   print('Opção inválida. Por favor, escolha uma opção válida.');
 }
+
+String validarDataDeNascimento(String textInput) {
+  RegExp regExpDataNascimento = RegExp(r'^\d{4}-\d{2}-\d{2}$');
+
+  while (regExpDataNascimento.hasMatch(textInput)) {
+    print('Formato de data inválido. Por favor, insira no formato AAAA-MM-DD:');
+    textInput = stdin.readLineSync()!;
+  }
+
+  return textInput;
+}
+
+String validarCpf(String textInput) {
+  RegExp regExpCpf = RegExp(r'^\d+$');
+
+  while (regExpCpf.hasMatch(textInput)) {
+    print('Formato de CPF inválido. Por favor, insira apenas números:');
+    textInput = stdin.readLineSync()!;
+  }
+
+  return textInput;
+}

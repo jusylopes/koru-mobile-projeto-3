@@ -36,6 +36,7 @@ class MenuCliente {
           cliente != null
               ? _adicionarDinheiro(cliente!)
               : imprimirUsuarioNaoAdicionado(Usuario.cliente);
+          break;
         case '3':
           cliente != null
               ? _comprarProduto(cliente!)
@@ -70,10 +71,11 @@ class MenuCliente {
   Cliente _inserirDadosCliente() {
     print('Digite seu nome:');
     String nome = stdin.readLineSync()!;
-    print('Digite seu CPF:');
-    String cpf = stdin.readLineSync()!;
-    print('Digite sua data de nascimento (dessa forma: YYYY-MM-DD):');
-    DateTime dataNascimento = DateTime.parse(stdin.readLineSync()!);
+    print('Digite seu CPF (apenas números):');
+    String cpf = validarCpf(stdin.readLineSync()!);
+    print('Digite sua data de nascimento (dessa forma: AAAA-MM-DD):');
+    DateTime dataNascimento =
+        DateTime.parse(validarDataDeNascimento(stdin.readLineSync()!));
     Genero genero = selecionarGeneroNoMenu();
 
     Cliente cliente = Cliente(
