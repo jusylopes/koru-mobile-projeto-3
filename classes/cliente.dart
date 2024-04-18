@@ -110,4 +110,20 @@ class Cliente extends Pessoa {
       print('${brinde.nomeBrinde} ');
     }
   }
+
+  void trocarPontosPorBrinde(Brinde brinde) {
+    if (pontos < brinde.pontosNecessarios) {
+      print(
+          '$nome não possui pontos suficientes para trocar pelo brinde ${brinde.pontosNecessarios}.');
+    } else {
+      try {
+        brinde.realizarTroca();
+
+        pontos -= brinde.pontosNecessarios;
+        brindes.add(brinde);
+      } catch (e) {
+        print('Ocorreu uma problema durante a troca: $e');
+      }
+    }
+  }
 }
