@@ -1,5 +1,4 @@
 import '../utils/enums.dart';
-import 'brinde.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 import 'revendedor.dart';
@@ -97,9 +96,18 @@ class Cliente extends Pessoa {
         "O total gasto por $nome foi de ${calcularTotalGasto().toStringAsFixed(2)} reais e a média dos produtos comprados é de ${calcularMediaProdutosComprados().toStringAsFixed(2)} reais");
   }
 
-  void ordenarBrindes() {
+  void _ordenarBrindes() {
     brindes.sort((a, b) {
       return a.nomeBrinde.compareTo(b.nomeBrinde);
     });
+  }
+
+  void verBrindes() {
+    _ordenarBrindes();
+
+    print('Brindes recebidos por $nome: ');
+    for (Brinde brinde in brindes) {
+      print('${brinde.nomeBrinde} ');
+    }
   }
 }
