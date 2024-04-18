@@ -2,9 +2,12 @@ import '../utils/enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 import 'revendedor.dart';
+import 'brinde.dart';
 
 class Cliente extends Pessoa {
   double dinheiro;
+  List<Brinde> brindes = [];
+  int pontos = 0;
   List<Produto> produtosComprados = [];
 
   Cliente(
@@ -44,6 +47,7 @@ class Cliente extends Pessoa {
       revendedor.venderProduto(produto);
       produtosComprados.add(produto);
       dinheiro -= produto.valor;
+      pontos++;
     } catch (e) {
       print("Erro ao comprar o produto: $e");
     }
@@ -90,5 +94,20 @@ class Cliente extends Pessoa {
   void verResumo() {
     print(
         "O total gasto por $nome foi de ${calcularTotalGasto().toStringAsFixed(2)} reais e a média dos produtos comprados é de ${calcularMediaProdutosComprados().toStringAsFixed(2)} reais");
+  }
+
+  void _ordenarBrindes() {
+    brindes.sort((a, b) {
+      return a.nomeBrinde.compareTo(b.nomeBrinde);
+    });
+  }
+
+  void verBrindes() {
+    _ordenarBrindes();
+
+    print('Brindes recebidos por $nome: ');
+    for (Brinde brinde in brindes) {
+      print('${brinde.nomeBrinde} ');
+    }
   }
 }
