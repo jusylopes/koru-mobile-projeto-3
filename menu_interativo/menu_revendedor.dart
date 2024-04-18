@@ -1,22 +1,21 @@
 import 'dart:io';
 import '../classes/produto.dart';
 import '../classes/revendedor.dart';
-import '../utils/enums.dart';
-import '../utils/mock_produto.dart';
 import '../utils/utils.dart';
 import 'utils_menu.dart';
 
 class MenuRevendedor {
-  Revendedor? revendedor;
+  Revendedor? revendedorSelecionado;
 
   void chamarMenuRevendedor() {
     bool sair = false;
 
     while (!sair) {
       pularLinha();
-      imprimirMensagemComMoldura(' REVENDEDOR |     TEAM FIVE   ');
+      imprimirMensagemComMoldura(
+          '${_criaTituloDoMenuRevendedor(revendedorSelecionado)}');
       print('|--------------------------------|');
-      print('| 1 - Adicionar Revendedor       |');
+      print('| 1 - Selecionar Revendedor      |');
       print('| 2 - Vender Produto             |');
       print('| 3 - Falar uma mensagem         |');
       print('| 4 - Ver Resumo de Operações    |');
@@ -28,31 +27,22 @@ class MenuRevendedor {
 
       switch (opcao) {
         case '1':
-          revendedor = inserirDadosRevendedor();
+          revendedorSelecionado = selecionarRevendedorNoMenu();
           break;
         case '2':
-          if (revendedor != null) {
-            _venderProduto(revendedor!);
-          } else {
-            imprimirUsuarioNaoAdicionado(Usuario.revendedor);
-          }
+          revendedorSelecionado != null
+              ? _venderProduto(revendedorSelecionado!)
+              : _imprimirRevendedorNaoSelecionado();
           break;
         case '3':
-          if (revendedor != null) {
-            print('Digite uma mensagem:');
-            String mensagemRevendedor = stdin.readLineSync()!;
-            revendedor!.falar(mensagemRevendedor);
-          } else {
-            imprimirUsuarioNaoAdicionado(Usuario.revendedor);
-          }
+          revendedorSelecionado != null
+              ? _falarMensagem(revendedorSelecionado!)
+              : _imprimirRevendedorNaoSelecionado();
           break;
         case '4':
-          if (revendedor != null) {
-            imprimirMensagemComMoldura('Seu resumo de operações: ');
-            revendedor!.verResumo();
-          } else {
-            imprimirUsuarioNaoAdicionado(Usuario.revendedor);
-          }
+          revendedorSelecionado != null
+              ? _verResumoDeRevendedor(revendedorSelecionado!)
+              : _imprimirRevendedorNaoSelecionado();
           break;
         case '5':
           sair = true;
@@ -64,16 +54,31 @@ class MenuRevendedor {
     }
   }
 
+  String _criaTituloDoMenuRevendedor(Revendedor? revendedorSelecionado) {
+    return revendedorSelecionado != null
+        ? '${revendedorSelecionado.getGeneroRevendedor().toUpperCase()} | ${revendedorSelecionado.nome} - mat ${revendedorSelecionado.matricula}'
+        : 'REVENDEDOR | TEAM FIVE';
+  }
+
   void _venderProduto(Revendedor revendedor) {
-    List<Produto> produtos = MockProduto.mockProduto();
-
-    print('Selecione um produto:');
-    for (int i = 0; i < produtos.length; i++) {
-      print('${i + 1} - ${produtos[i].nome}');
-    }
-    int produtoIndex = int.parse(stdin.readLineSync()!) - 1;
-
-    Produto produtoSelecionado = produtos[produtoIndex];
+    Produto produtoSelecionado = selecionarProdutoNoMenu();
     revendedor.venderProduto(produtoSelecionado);
+  }
+
+  void _falarMensagem(Revendedor revendedor) {
+    print('Digite uma mensagem:');
+    String mensagemRevendedor = stdin.readLineSync()!;
+    revendedor.falar(mensagemRevendedor);
+  }
+
+  void _verResumoDeRevendedor(Revendedor revendedor) {
+    imprimirMensagemComMoldura(
+        'Resumo de operações de ${revendedor.nome} - mat: ${revendedor.matricula}: ');
+    revendedor.verResumo();
+  }
+
+  void _imprimirRevendedorNaoSelecionado() {
+    print(
+        'Revendedor não selecionado. Por favor, selecione um revendedor primeiro.');
   }
 }
