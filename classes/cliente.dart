@@ -5,6 +5,8 @@ import 'revendedor.dart';
 
 class Cliente extends Pessoa {
   double dinheiro;
+  List<Brinde> brindes = [];
+  int pontos = 0;
   List<Produto> produtosComprados = [];
 
   Cliente(
@@ -44,6 +46,7 @@ class Cliente extends Pessoa {
       revendedor.venderProduto(produto);
       produtosComprados.add(produto);
       dinheiro -= produto.valor;
+      pontos++;
     } catch (e) {
       print("Erro ao comprar o produto: $e");
     }
