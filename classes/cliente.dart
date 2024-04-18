@@ -126,4 +126,7 @@ class Cliente extends Pessoa {
       }
     }
   }
+  void consultarTotalPontos(){
+    print('$nome possui $pontos pontos');
+  }
 }
