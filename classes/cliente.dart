@@ -96,8 +96,8 @@ class Cliente extends Pessoa {
         "O total gasto por $nome foi de ${calcularTotalGasto().toStringAsFixed(2)} reais e a média dos produtos comprados é de ${calcularMediaProdutosComprados().toStringAsFixed(2)} reais");
   }
 
-  void ordenarBrindes(List<Brinde> brindesOrdenados) {
-    brindesOrdenados.sort((a, b) {
+  void ordenarBrindes() {
+    brindes.sort((a, b) {
       return a.nomeBrinde.compareTo(b.nomeBrinde);
     });
   }
