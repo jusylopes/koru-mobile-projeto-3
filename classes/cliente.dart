@@ -1,4 +1,5 @@
 import '../utils/enums.dart';
+import 'brinde.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 import 'revendedor.dart';
