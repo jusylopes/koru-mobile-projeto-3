@@ -3,6 +3,7 @@ import 'brinde.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 import 'revendedor.dart';
+import 'brinde.dart';
 
 class Cliente extends Pessoa {
   double dinheiro;
@@ -94,5 +95,11 @@ class Cliente extends Pessoa {
   void verResumo() {
     print(
         "O total gasto por $nome foi de ${calcularTotalGasto().toStringAsFixed(2)} reais e a média dos produtos comprados é de ${calcularMediaProdutosComprados().toStringAsFixed(2)} reais");
+  }
+
+  void ordenarBrindes() {
+    brindes.sort((a, b) {
+      return a.nomeBrinde.compareTo(b.nomeBrinde);
+    });
   }
 }
