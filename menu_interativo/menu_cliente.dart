@@ -4,6 +4,7 @@ import '../classes/produto.dart';
 import '../classes/revendedor.dart';
 import '../utils/enums.dart';
 import '../utils/utils.dart';
+import 'menu_clube_de_fidelidade.dart';
 import 'utils_menu.dart';
 
 class MenuCliente {
@@ -15,14 +16,15 @@ class MenuCliente {
     while (!sair) {
       pularLinha();
       imprimirMensagemComMoldura(
-          ' CLIENTE |  ${_criaTituloDoMenuCliente(cliente)} ');
+          ' CLIENTE |  ${_criarTituloDoMenuCliente(cliente)} ');
       print('|--------------------------------|');
       print('| 1 - Adicionar Cliente          |');
       print('| 2 - Adicionar Dinheiro         |');
       print('| 3 - Comprar Produto            |');
       print('| 4 - Ver Resumo de Operações    |');
       print('| 5 - Ver Saldo Atual            |');
-      print('| 6 - Voltar ao menu principal   |');
+      print('| 6 - Clube de fidelidade        |');
+      print('| 7 - Voltar ao menu principal   |');
       print('|--------------------------------|');
       pularLinha();
 
@@ -53,6 +55,11 @@ class MenuCliente {
               : imprimirUsuarioNaoAdicionado(Usuario.cliente);
           break;
         case '6':
+          cliente != null
+              ? _acessarClubeDeFidelidade(cliente!)
+              : imprimirUsuarioNaoAdicionado(Usuario.cliente);
+          break;
+        case '7':
           sair = true;
           break;
         default:
@@ -62,7 +69,7 @@ class MenuCliente {
     }
   }
 
-  String _criaTituloDoMenuCliente(Cliente? cliente) {
+  String _criarTituloDoMenuCliente(Cliente? cliente) {
     return cliente != null
         ? '${cliente.nome} - saldo \$ ${cliente.dinheiro}'
         : 'TEAM FIVE';
@@ -96,5 +103,9 @@ class MenuCliente {
     Revendedor revendedorSelecionado = selecionarRevendedorNoMenu();
 
     cliente.comprarProduto(produtoSelecionado, revendedorSelecionado);
+  }
+
+  void _acessarClubeDeFidelidade(Cliente cliente) {
+    MenuClubeDeFidelidade(cliente: cliente).chamarMenuClubeDeFidelidade();
   }
 }
