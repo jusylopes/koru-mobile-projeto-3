@@ -32,17 +32,15 @@ class Revendedor extends Pessoa {
 
   @override
   void falar(String falaDaPessoa) {
-    print('$getGeneroRevendedor $nome diz: $falaDaPessoa');
+    print('${getGeneroRevendedor()} $nome diz: $falaDaPessoa');
   }
 
   String getGeneroRevendedor() {
     switch (genero) {
       case Genero.Feminino:
         return 'Revendedora';
-
       case Genero.Masculino:
         return 'Revendedor';
-
       case Genero.Outro:
         return 'Pessoa revendedora';
       default:
@@ -75,6 +73,8 @@ class Revendedor extends Pessoa {
 
   void verResumo() {
     print(
-        'O total vendido por $nome foi ${calcularTotalVendido().toStringAsFixed(2)} reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais. O lucro recebido foi de ${calcularLucro().toStringAsFixed(2)} reais.');
+        'O total vendido por $nome foi ${calcularTotalVendido().toStringAsFixed(2)} reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais.');
+    print(
+        'O lucro recebido foi de ${calcularLucro().toStringAsFixed(2)} reais');
   }
 }
