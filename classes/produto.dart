@@ -9,7 +9,7 @@ class Produto {
   void realizarVenda() {
     if (qtdEmEstoque >= 1) {
       _atualizarEstoque();
-      print("Compra de um(a) produto $nome realizada com sucesso!");
+      print('Compra de um(a) produto $nome realizada com sucesso!');
     } else {
       throw'No momento não possuímos o produto $nome em estoque.';
     }
