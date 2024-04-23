@@ -1,15 +1,21 @@
 import 'dart:io';
+import '../classes/brinde.dart';
+import '../classes/cliente.dart';
 import '../classes/produto.dart';
 import '../classes/revendedor.dart';
 import '../utils/enums.dart';
+import '../utils/mock_brinde.dart';
 import '../utils/mock_produto.dart';
 import '../utils/mock_revendedor.dart';
+import '../utils/utils.dart';
 
 Genero selecionarGeneroNoMenu() {
-  print('Escolha o gênero:');
-  print('1 - Feminino');
-  print('2 - Masculino');
-  print('3 - Outro');
+  print('|-----------------------------|');
+  print('| Escolha o gênero:           |');
+  print('| 1 - Feminino                |');
+  print('| 2 - Masculino               |');
+  print('| 3 - Outro                   |');
+  print('|-----------------------------|');
 
   String? input;
   Genero? genero;
@@ -33,6 +39,51 @@ Genero selecionarGeneroNoMenu() {
   }
 
   return genero;
+}
+
+Humor selecionarHumorNoMenu(Cliente cliente) {
+  pularLinha();
+  imprimirMensagemComMoldura('TERMOMETRO DO HUMOR  |  ${cliente.nome} ');
+  print('|-----------------------------|');
+  print('| Escolha seu humor:          |');
+  print('| 1 - FELIZ                   |');
+  print('| 2 - TRISTE                  |');
+  print('| 3 - COM RAIVA               |');
+  print('| 4 - COM NOJO                |');
+  print('| 5 - ANSIOSO                 |');
+  print('| 6 - COM MEDO                |');
+  print('| 7 - COM ALEGRIA             |');
+  imprimirMensagemComMoldura(' 😁  😰  🤩  🥺  🥶  🤢  😡');
+
+  Cliente clienteX = cliente;
+  String? input;
+  Humor humor = Humor.alegria;
+
+  while (true) {
+    input = stdin.readLineSync();
+    switch (input) {
+      case '1':
+        return Humor.felicidade;
+      case '2':
+        humor = Humor.tristeza;
+      case '3':
+        humor = Humor.raiva;
+      case '4':
+        humor = Humor.nojo;
+      case '5':
+        humor = Humor.ansiedade;
+      case '6':
+        humor = Humor.medo;
+      case '7':
+        humor = Humor.alegria;
+      default:
+        print('Opção inválida. Tente novamente.');
+        return selecionarHumorNoMenu(clienteX);
+    }
+    break;
+  }
+
+  return humor;
 }
 
 Produto selecionarProdutoNoMenu() {
@@ -61,6 +112,20 @@ Revendedor selecionarRevendedorNoMenu() {
   Revendedor revendedorSelecionado = revendedores[produtoIndex];
 
   return revendedorSelecionado;
+}
+
+Brinde selecionarBrindeNoMenu() {
+  List<Brinde> brindes = MockBrinde.mockBrinde();
+
+  print('Escolha um brinde 🎁🎁🎁:');
+  for (int i = 0; i < brindes.length; i++) {
+    print(
+        '${i + 1} - ${brindes[i].nomeBrinde} - ${brindes[i].pontosNecessarios} pontos');
+  }
+  int brindeIndex = int.parse(stdin.readLineSync()!) - 1;
+  Brinde brindeSelecionado = brindes[brindeIndex];
+
+  return brindeSelecionado;
 }
 
 void imprimirUsuarioNaoAdicionado(Usuario tipoUsuario) {
