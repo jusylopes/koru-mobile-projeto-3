@@ -22,17 +22,19 @@ class MenuClubeDeFidelidade {
       print('| 2 - Trocar Pontos por Brindes  |');
       print('| 3 - Histórico de trocas        |');
       print('| 4 - Voltar ao menu anterior    |');
-      print('|--------------------------------|');
+      imprimirMensagemComMoldura('🛒  🛒  🛒  🛒  🛒  🛒  🛒  🛒');
       imprimirEstrelasDoClubeASCII();
 
       String? opcao = stdin.readLineSync();
-
       switch (opcao) {
         case '1':
+          cliente.consultarTotalPontos();
           break;
         case '2':
+          cliente.trocarPontosPorBrinde(selecionarBrindeNoMenu());
           break;
         case '3':
+          cliente.verBrindes();
           break;
         case '4':
           sair = true;
