@@ -6,14 +6,12 @@ class Produto {
   Produto({required this.nome, required this.valor, required this.qtdEmEstoque})
       : qtdVendida = 0;
 
-  bool realizarVenda() {
+  void realizarVenda() {
     if (qtdEmEstoque >= 1) {
       _atualizarEstoque();
-      print("Compra de um(a) produto $nome realizada com sucesso!");
-      return true;
+      print('Compra de um(a) produto $nome realizada com sucesso!');
     } else {
-      print('No momento não possuímos o produto $nome em estoque.');
-      return false;
+      throw'No momento não possuímos o produto $nome em estoque.';
     }
   }
 

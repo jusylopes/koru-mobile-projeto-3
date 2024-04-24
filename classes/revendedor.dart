@@ -1,11 +1,11 @@
-import 'enums.dart';
+import '../utils/enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 
 class Revendedor extends Pessoa {
   final String matricula;
   List<Produto> produtosVendidos = [];
-  double porcentagemLucro = 0.15;
+  double _porcentagemLucro = 0.15;
 
   Revendedor(
       {required String nome,
@@ -19,29 +19,65 @@ class Revendedor extends Pessoa {
             dataDeNascimento: dataDeNascimento,
             genero: genero);
 
-  bool venderProduto(Produto produto) {
-    if (produto.realizarVenda()) {
+  double get porcentagemLucro => _porcentagemLucro;
+
+  void venderProduto(Produto produto) {
+    try {
+      produto.realizarVenda();
       produtosVendidos.add(produto);
-      return true;
-    } else {
-      return false;
+    } catch (e) {
+      throw e;
     }
   }
 
   @override
   void falar(String falaDaPessoa) {
-    String generoRevendedor;
+    print('${getGeneroRevendedor()} $nome diz: $falaDaPessoa');
+  }
+
+  String getGeneroRevendedor() {
     switch (genero) {
       case Genero.Feminino:
-        generoRevendedor = 'Revendedora';
-        break;
+        return 'Revendedora';
       case Genero.Masculino:
-        generoRevendedor = 'Revendedor';
-        break;
+        return 'Revendedor';
       case Genero.Outro:
-        generoRevendedor = 'Pessoa revendedora';
-        break;
+        return 'Pessoa revendedora';
+      default:
+        return 'Revendedor';
     }
-    print('$generoRevendedor $nome diz: $falaDaPessoa');
+  }
+
+  double calcularMediaProdutosVendidos() {
+    double media = 0;
+
+    if (calcularTotalVendido() > 0) {
+      media = calcularTotalVendido() / produtosVendidos.length;
+    }
+
+    return media;
+  }
+
+  double calcularTotalVendido() {
+    double calcularTotalVendido = 0;
+    for (Produto produto in produtosVendidos) {
+      calcularTotalVendido += produto.valor;
+    }
+    return calcularTotalVendido;
+  }
+
+  double calcularLucro() {
+    double lucroTotal = 0;
+
+    lucroTotal = _porcentagemLucro * calcularTotalVendido();
+
+    return lucroTotal;
+  }
+
+  void verResumo() {
+    print(
+        'O total vendido por $nome foi ${calcularTotalVendido().toStringAsFixed(2)} reais e a média aritmética de valor dos produtos vendidos é ${calcularMediaProdutosVendidos().toStringAsFixed(2)} reais.');
+    print(
+        'O lucro recebido foi de ${calcularLucro().toStringAsFixed(2)} reais');
   }
 }
