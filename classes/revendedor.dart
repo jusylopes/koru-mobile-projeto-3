@@ -51,7 +51,10 @@ class Revendedor extends Pessoa {
   double calcularMediaProdutosVendidos() {
     double media = 0;
 
-    media = calcularTotalVendido() / produtosVendidos.length;
+    if (calcularTotalVendido() > 0) {
+      media = calcularTotalVendido() / produtosVendidos.length;
+    }
+
     return media;
   }
 
