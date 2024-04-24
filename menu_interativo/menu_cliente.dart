@@ -24,7 +24,7 @@ class MenuCliente {
       print('| 4 - Ver Resumo de Operações  |');
       print('| 5 - Ver Saldo Atual          |');
       print('| 6 - Clube de fidelidade      |');
-      print('| 7 - Termometro do Humor      |');
+      print('| 7 - Termômetro do Humor      |');
       print('| 8 - Voltar ao menu principal |');
       imprimirMensagemComMoldura(' 👩  👨  👧  👵  🧕  👴  👩 ');
       pularLinha();
