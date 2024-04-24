@@ -14,13 +14,13 @@ class MenuRevendedor {
       pularLinha();
       imprimirMensagemComMoldura(
           '${_criarTituloDoMenuRevendedor(revendedorSelecionado)}');
-      print('|--------------------------------|');
-      print('| 1 - Selecionar Revendedor      |');
-      print('| 2 - Vender Produto             |');
-      print('| 3 - Falar uma mensagem         |');
-      print('| 4 - Ver Resumo de Operações    |');
-      print('| 5 - Voltar ao menu principal   |');
-      print('|--------------------------------|');
+      print('|-------------------------------|');
+      print('| 1 - Selecionar Revendedor     |');
+      print('| 2 - Vender Produto            |');
+      print('| 3 - Falar uma mensagem        |');
+      print('| 4 - Ver Resumo de Operações   |');
+      print('| 5 - Voltar ao menu principal  |');
+      imprimirMensagemComMoldura(' 💳  🧾  🛒  💵   💳  🛒  💳 ');
       pularLinha();
 
       String? opcao = stdin.readLineSync();
